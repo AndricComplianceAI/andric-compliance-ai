@@ -63,13 +63,7 @@ Good first users:
 - family offices
 - fintechs
 
-## Suggested first paid offer
-
 “AI-assisted shareholder disclosure review with consultant validation.”
-
-Price test:
-- 99 to 249 CHF per document review
-- 499 to 1500 CHF per month for repeat clients
 
 ## Important
 
