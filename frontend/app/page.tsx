@@ -32,6 +32,13 @@ export default function Home() {
   async function submitReview() {
     if (!file) return;
 
+    const uses = Number(localStorage.getItem("free_reviews_used") || 0);
+
+    if (uses >= 1) {
+      setError("Free limit reached. Upgrade to Pro for more compliance reviews.");
+      return;
+    }
+
     setLoading(true);
     setError("");
     setReview(null);
@@ -51,6 +58,7 @@ export default function Home() {
         throw new Error(data.detail || "Review failed");
       }
 
+      localStorage.setItem("free_reviews_used", String(uses + 1));
       setReview(data);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
@@ -64,8 +72,7 @@ export default function Home() {
       <div className="header">
         <h1>Andric Compliance AI</h1>
         <p>
-          Upload a financial-services document and get a structured compliance review.
-          Use this as consultant support, not final legal advice.
+          Get 1 free compliance review. Upgrade to Pro for unlimited document reviews.
         </p>
       </div>
 
@@ -83,6 +90,13 @@ export default function Home() {
           {loading ? "Reviewing..." : "Run compliance review"}
         </button>
 
+        <button
+          className="primary"
+          onClick={() => window.location.href = "https://paypal.me/YOURNAME"}
+        >
+          Upgrade to Pro, 39.99 CHF/month
+        </button>
+
         {error && <p style={{ color: "#b91c1c" }}>{error}</p>}
       </div>
 
@@ -94,35 +108,8 @@ export default function Home() {
             <p>{review.executive_summary}</p>
           </div>
 
-          <div>
-            <h2 className="section-title">Likely regulatory areas</h2>
-            <ul>
-              {review.likely_regulatory_areas.map((area) => (
-                <li key={area}>{area}</li>
-              ))}
-            </ul>
-          </div>
-
           <FindingList title="Missing or weak disclosures" items={review.missing_or_weak_disclosures} />
           <FindingList title="Flagged clauses or sections" items={review.flagged_clauses_or_sections} />
-
-          <div>
-            <h2 className="section-title">Suggested next actions</h2>
-            <ul>
-              {review.suggested_next_actions.map((action) => (
-                <li key={action}>{action}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h2 className="section-title">Questions for client</h2>
-            <ul>
-              {review.questions_for_client.map((question) => (
-                <li key={question}>{question}</li>
-              ))}
-            </ul>
-          </div>
         </div>
       )}
     </main>
