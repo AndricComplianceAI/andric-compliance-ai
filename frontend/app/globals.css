@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f6f7f9;
+  color: #111827;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 36px;
+}
+
+.header p {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.upload {
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fafafa;
+}
+
+.primary {
+  background: #111827;
+  color: white;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 15px;
+}
+
+.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.finding {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.finding h3 {
+  margin: 0 0 8px;
+}
+
+.finding p {
+  margin: 8px 0;
+  color: #374151;
+  line-height: 1.45;
+}
+
+.section-title {
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
