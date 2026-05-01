@@ -40,7 +40,7 @@ export default function Home() {
     formData.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:8000/review", {
+      const response = await fetch("https://andric-compliance-ai-production.up.railway.app/review", {
         method: "POST",
         body: formData,
       });
